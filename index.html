@@ -186,9 +186,9 @@
         alternativas.forEach((alt, k) => {
           if (alt === corretaOriginal) letraCorreta = letras[k];
 
-          // Remove os cifrões e envolve o conteúdo com \( ... \)
-          let altFormatada = alt.replace(/\$(.*?)\$/g, (_, expr) => expr.trim());
-          altFormatada = `\\(${altFormatada}\\)`;
+          // Substituir expressões matemáticas entre '$ ... $' por \\(...\\) para MathJax
+          // mantendo o resto do texto normal
+          let altFormatada = alt.replace(/\$(.*?)\$/g, (match, expr) => `\\(${expr.trim()}\\)`);
 
           html += `
             <input type="radio" id="q${i + 1}-${letras[k]}" name="q${i + 1}" value="${letras[k]}" required>
