@@ -71,107 +71,138 @@
       font-size: 1.1rem;
       font-weight: bold;
       transition: background 0.2s;
+      margin-bottom: 12px;
     }
     button:hover {
       background: #085080;
+    }
+    #questoes-section {
+      display: none;
     }
   </style>
 </head>
 <body>
 
   <div class="form-container">
-    <form action="https://formsubmit.co/sortegrande559@gmail.com" method="POST">
+    <form action="https://formsubmit.co/sortegrande559@gmail.com" method="POST" id="formulario">
+      <div id="iniciais-section">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="Nome" required>
+        
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="Telefone" required pattern="[0-9]{10,11}" title="Digite apenas números com DDD">
 
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="Nome" required>
-      
-      <label for="telefone">Telefone:</label>
-      <input type="tel" id="telefone" name="Telefone" required pattern="[0-9]{10,11}" title="Digite apenas números com DDD">
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="Endereco" required>
 
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" name="Endereco" required>
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="Bairro" required>
 
-      <label for="bairro">Bairro:</label>
-      <input type="text" id="bairro" name="Bairro" required>
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="Cidade" required>
 
-      <label for="cidade">Cidade:</label>
-      <input type="text" id="cidade" name="Cidade" required>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="Sexo" required>
+          <option value="">Selecione</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <button type="button" onclick="verificarEAvancar()">Próximo</button>
+      </div>
 
-      <label for="sexo">Sexo:</label>
-      <select id="sexo" name="Sexo" required>
-        <option value="">Selecione</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Feminino">Feminino</option>
-        <option value="Outro">Outro</option>
-      </select>
+      <div id="questoes-section">
+        <fieldset class="questoes">
+          <legend>Questões sobre Função do Segundo Grau</legend>
 
-      <fieldset class="questoes">
-        <legend>Questões sobre Função do Segundo Grau</legend>
+          <label>1) Qual é a forma geral de uma função do 2º grau?</label><br>
+          <input type="radio" name="q1" value="a" required> a) f(x) = ax² + bx + c<br>
+          <input type="radio" name="q1" value="b"> b) f(x) = ax + c<br>
+          <input type="radio" name="q1" value="c"> c) f(x) = ax³ + bx² + c<br>
+          <br>
 
-        <label>1) Qual é a forma geral de uma função do 2º grau?</label><br>
-        <input type="radio" name="q1" value="a" required> a) f(x) = ax² + bx + c<br>
-        <input type="radio" name="q1" value="b"> b) f(x) = ax + c<br>
-        <input type="radio" name="q1" value="c"> c) f(x) = ax³ + bx² + c<br>
-        <br>
+          <label>2) O que representa o coeficiente “a” na função quadrática?</label><br>
+          <input type="radio" name="q2" value="a" required> a) Indica a concavidade da parábola<br>
+          <input type="radio" name="q2" value="b"> b) Indica a altura da parábola<br>
+          <input type="radio" name="q2" value="c"> c) Indica o vértice da parábola<br>
+          <br>
 
-        <label>2) O que representa o coeficiente “a” na função quadrática?</label><br>
-        <input type="radio" name="q2" value="a" required> a) Indica a concavidade da parábola<br>
-        <input type="radio" name="q2" value="b"> b) Indica a altura da parábola<br>
-        <input type="radio" name="q2" value="c"> c) Indica o vértice da parábola<br>
-        <br>
+          <label>3) Para que valores de “a” a parábola é concava para cima?</label><br>
+          <input type="radio" name="q3" value="a" required> a) a &gt; 0<br>
+          <input type="radio" name="q3" value="b"> b) a &lt; 0<br>
+          <input type="radio" name="q3" value="c"> c) a = 0<br>
+          <br>
 
-        <label>3) Para que valores de “a” a parábola é concava para cima?</label><br>
-        <input type="radio" name="q3" value="a" required> a) a &gt; 0<br>
-        <input type="radio" name="q3" value="b"> b) a &lt; 0<br>
-        <input type="radio" name="q3" value="c"> c) a = 0<br>
-        <br>
+          <label>4) Qual é a fórmula do vértice da parábola?</label><br>
+          <input type="radio" name="q4" value="a" required> a) x_v = -b/2a<br>
+          <input type="radio" name="q4" value="b"> b) x_v = -c/2a<br>
+          <input type="radio" name="q4" value="c"> c) x_v = -a/2b<br>
+          <br>
 
-        <label>4) Qual é a fórmula do vértice da parábola?</label><br>
-        <input type="radio" name="q4" value="a" required> a) x_v = -b/2a<br>
-        <input type="radio" name="q4" value="b"> b) x_v = -c/2a<br>
-        <input type="radio" name="q4" value="c"> c) x_v = -a/2b<br>
-        <br>
+          <label>5) O que determina o número de raízes reais de uma função quadrática?</label><br>
+          <input type="radio" name="q5" value="a" required> a) O valor do discriminante (Δ = b²-4ac)<br>
+          <input type="radio" name="q5" value="b"> b) O coeficiente “a”<br>
+          <input type="radio" name="q5" value="c"> c) O termo independente “c”<br>
+          <br>
 
-        <label>5) O que determina o número de raízes reais de uma função quadrática?</label><br>
-        <input type="radio" name="q5" value="a" required> a) O valor do discriminante (Δ = b²-4ac)<br>
-        <input type="radio" name="q5" value="b"> b) O coeficiente “a”<br>
-        <input type="radio" name="q5" value="c"> c) O termo independente “c”<br>
-        <br>
+          <label>6) Se Δ &lt; 0, a equação do 2º grau possui:</label><br>
+          <input type="radio" name="q6" value="a" required> a) Nenhuma raiz real<br>
+          <input type="radio" name="q6" value="b"> b) Duas raízes reais diferentes<br>
+          <input type="radio" name="q6" value="c"> c) Duas raízes reais iguais<br>
+          <br>
 
-        <label>6) Se Δ &lt; 0, a equação do 2º grau possui:</label><br>
-        <input type="radio" name="q6" value="a" required> a) Nenhuma raiz real<br>
-        <input type="radio" name="q6" value="b"> b) Duas raízes reais diferentes<br>
-        <input type="radio" name="q6" value="c"> c) Duas raízes reais iguais<br>
-        <br>
+          <label>7) Qual é o gráfico de uma função do 2º grau?</label><br>
+          <input type="radio" name="q7" value="a" required> a) Uma parábola<br>
+          <input type="radio" name="q7" value="b"> b) Uma reta<br>
+          <input type="radio" name="q7" value="c"> c) Uma circunferência<br>
+          <br>
 
-        <label>7) Qual é o gráfico de uma função do 2º grau?</label><br>
-        <input type="radio" name="q7" value="a" required> a) Uma parábola<br>
-        <input type="radio" name="q7" value="b"> b) Uma reta<br>
-        <input type="radio" name="q7" value="c"> c) Uma circunferência<br>
-        <br>
+          <label>8) Qual é a soma das raízes da equação ax² + bx + c = 0?</label><br>
+          <input type="radio" name="q8" value="a" required> a) -b/a<br>
+          <input type="radio" name="q8" value="b"> b) -c/b<br>
+          <input type="radio" name="q8" value="c"> c) -a/b<br>
+          <br>
 
-        <label>8) Qual é a soma das raízes da equação ax² + bx + c = 0?</label><br>
-        <input type="radio" name="q8" value="a" required> a) -b/a<br>
-        <input type="radio" name="q8" value="b"> b) -c/b<br>
-        <input type="radio" name="q8" value="c"> c) -a/b<br>
-        <br>
+          <label>9) Qual é o produto das raízes da equação ax² + bx + c = 0?</label><br>
+          <input type="radio" name="q9" value="a" required> a) c/a<br>
+          <input type="radio" name="q9" value="b"> b) a/c<br>
+          <input type="radio" name="q9" value="c"> c) b/a<br>
+          <br>
 
-        <label>9) Qual é o produto das raízes da equação ax² + bx + c = 0?</label><br>
-        <input type="radio" name="q9" value="a" required> a) c/a<br>
-        <input type="radio" name="q9" value="b"> b) a/c<br>
-        <input type="radio" name="q9" value="c"> c) b/a<br>
-        <br>
+          <label>10) Se a função f(x) = -2x² + 4x - 7, a concavidade da parábola é:</label><br>
+          <input type="radio" name="q10" value="a" required> a) Voltada para baixo<br>
+          <input type="radio" name="q10" value="b"> b) Voltada para cima<br>
+          <input type="radio" name="q10" value="c"> c) Não possui concavidade<br>
+          <br>
+        </fieldset>
+        <button type="submit">Enviar</button>
+      </div>
 
-        <label>10) Se a função f(x) = -2x² + 4x - 7, a concavidade da parábola é:</label><br>
-        <input type="radio" name="q10" value="a" required> a) Voltada para baixo<br>
-        <input type="radio" name="q10" value="b"> b) Voltada para cima<br>
-        <input type="radio" name="q10" value="c"> c) Não possui concavidade<br>
-        <br>
-      </fieldset>
-
-      <button type="submit">Enviar</button>
     </form>
   </div>
+
+  <script>
+    function verificarEAvancar() {
+      const campos = [
+        document.getElementById('nome'),
+        document.getElementById('telefone'),
+        document.getElementById('endereco'),
+        document.getElementById('bairro'),
+        document.getElementById('cidade'),
+        document.getElementById('sexo')
+      ];
+      let todosPreenchidos = true;
+      campos.forEach(campo => {
+        if(!campo.value) todosPreenchidos = false;
+      });
+      if(todosPreenchidos) {
+        document.getElementById('iniciais-section').style.display = 'none';
+        document.getElementById('questoes-section').style.display = 'block';
+      } else {
+        alert('Preencha todos os campos obrigatórios.');
+      }
+    }
+  </script>
 
 </body>
 </html>
