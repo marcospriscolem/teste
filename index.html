@@ -3,201 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Formulário Completo + Questões</title>
+  <title>COLÉGIO ESTADUAL PRISCO VIANA — MATEMÁTICA</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 40px;
+      background: #e9f2fb;
+      margin: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+    .header {
+      background: #4b98da;
+      color: #fff;
+      width: 100vw;
+      padding: 22px 10px 18px 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px #235a92a0;
+      letter-spacing: 1px;
+    }
     .form-container {
-      background: white;
-      padding: 30px 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 16px #0001;
+      background: #fff;
+      margin: 38px 0 38px 0;
+      padding: 32px 28px 22px 28px;
+      border-radius: 14px;
+      box-shadow: 0 2px 18px #0001;
       width: 100%;
-      max-width: 500px;
+      max-width: 540px;
     }
     label {
       font-weight: bold;
-      margin-bottom: 8px;
       display: block;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      color: #215385;
     }
-    input[type="text"], input[type="tel"] {
+    input[type="text"] {
       width: 100%;
-      padding: 10px 8px;
-      margin-bottom: 18px;
-      border: 1px solid #ccc;
+      padding: 9px 7px;
+      margin-bottom: 12px;
+      border: 1px solid #b0c7de;
       border-radius: 6px;
       font-size: 1rem;
+      background: #f4f9fd;
     }
-    select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 18px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    button, .questoes button {
+      background: #4b98da;
+      color: white;
+      border: none;
+      padding: 13px 32px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 1.12rem;
+      font-weight: bold;
+      margin-top: 11px;
+      margin-right: 5px;
+      transition: background 0.15s;
+    }
+    button:hover, .questoes button:hover {
+      background: #297ab8;
+    }
+    #questoes {
+      display: none;
+      margin-top: 24px;
     }
     fieldset {
-      margin-bottom: 24px;
-      border: 1px solid #ccd;
+      margin-bottom: 18px;
+      border: 1px solid #88b9e7;
       border-radius: 8px;
-      padding: 16px;
+      padding: 14px;
+      background: #f4f9fd;
     }
     legend {
       font-weight: bold;
-      color: #0a4a82;
-      margin-bottom: 12px;
+      color: #146c8c;
       padding: 0 8px;
     }
     .questoes label {
       font-weight: normal;
-      color: #333;
+      color: #1d3950;
       margin-bottom: 0;
+      margin-top: 7px;
+      display: block;
     }
     .questoes input[type="radio"] {
       margin-right: 6px;
     }
-    button {
-      background: #0a4a82;
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: background 0.2s;
-      margin-bottom: 12px;
-    }
-    button:hover {
-      background: #085080;
-    }
-    #questoes-section {
-      display: none;
+    .latex {
+      font-size: 1.06em;
+      color: #0e3557;
+      margin-bottom: 1px;
     }
   </style>
+  <!-- MathJax para renderizar expressões LaTeX -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
 
+  <div class="header">
+    COLÉGIO ESTADUAL PRISCO VIANA<br>
+    PROFESSOR: MARCOS &nbsp; | &nbsp; DISCIPLINA: MATEMÁTICA
+  </div>
+
   <div class="form-container">
-    <form action="https://formsubmit.co/sortegrande559@gmail.com" method="POST" id="formulario">
-      <div id="iniciais-section">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="Nome" required>
-        
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="Telefone" required pattern="[0-9]{10,11}" title="Digite apenas números com DDD">
+    <form action="https://formsubmit.co/SEU-EMAIL@EMAIL.com" method="POST" id="formulario">
 
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="Endereco" required>
-
-        <label for="bairro">Bairro:</label>
-        <input type="text" id="bairro" name="Bairro" required>
-
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="Cidade" required>
-
-        <label for="sexo">Sexo:</label>
-        <select id="sexo" name="Sexo" required>
-          <option value="">Selecione</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Feminino">Feminino</option>
-          <option value="Outro">Outro</option>
-        </select>
-        <button type="button" onclick="verificarEAvancar()">Próximo</button>
+      <div id="info-pessoal">
+        <label for="turma">Turma:</label>
+        <input type="text" id="turma" name="Turma" required autocomplete="off">
+        <label for="turno">Turno:</label>
+        <input type="text" id="turno" name="Turno" required autocomplete="off">
+        <button type="button" onclick="mostrarQuestoes()">Próximo</button>
       </div>
 
-      <div id="questoes-section">
+      <div id="questoes">
         <fieldset class="questoes">
           <legend>Questões sobre Função do Segundo Grau</legend>
 
-          <label>1) Qual é a forma geral de uma função do 2º grau?</label><br>
-          <input type="radio" name="q1" value="a" required> a) f(x) = ax² + bx + c<br>
-          <input type="radio" name="q1" value="b"> b) f(x) = ax + c<br>
-          <input type="radio" name="q1" value="c"> c) f(x) = ax³ + bx² + c<br>
-          <br>
+          <label><span class="latex">1) Qual é a forma geral de uma função do 2º grau?</span></label>
+          <input type="radio" name="q1" value="a" required> a) \(f(x) = ax^2 + bx + c\)<br>
+          <input type="radio" name="q1" value="b"> b) \(f(x) = ax + c\)<br>
+          <input type="radio" name="q1" value="c"> c) \(f(x) = ax^3 + bx^2 + c\)<br><br>
 
-          <label>2) O que representa o coeficiente “a” na função quadrática?</label><br>
+          <label><span class="latex">2) O que representa o coeficiente “a” na função quadrática?</span></label>
           <input type="radio" name="q2" value="a" required> a) Indica a concavidade da parábola<br>
           <input type="radio" name="q2" value="b"> b) Indica a altura da parábola<br>
-          <input type="radio" name="q2" value="c"> c) Indica o vértice da parábola<br>
-          <br>
+          <input type="radio" name="q2" value="c"> c) Indica o vértice da parábola<br><br>
 
-          <label>3) Para que valores de “a” a parábola é concava para cima?</label><br>
-          <input type="radio" name="q3" value="a" required> a) a &gt; 0<br>
-          <input type="radio" name="q3" value="b"> b) a &lt; 0<br>
-          <input type="radio" name="q3" value="c"> c) a = 0<br>
-          <br>
+          <label><span class="latex">3) Para que valores de “a” a parábola é côncava para cima?</span></label>
+          <input type="radio" name="q3" value="a" required> a) \(a > 0\)<br>
+          <input type="radio" name="q3" value="b"> b) \(a < 0\)<br>
+          <input type="radio" name="q3" value="c"> c) \(a = 0\)<br><br>
 
-          <label>4) Qual é a fórmula do vértice da parábola?</label><br>
-          <input type="radio" name="q4" value="a" required> a) x_v = -b/2a<br>
-          <input type="radio" name="q4" value="b"> b) x_v = -c/2a<br>
-          <input type="radio" name="q4" value="c"> c) x_v = -a/2b<br>
-          <br>
+          <label><span class="latex">4) Qual é a fórmula do vértice da parábola?</span></label>
+          <input type="radio" name="q4" value="a" required> a) \(x_v = - \frac{b}{2a}\)<br>
+          <input type="radio" name="q4" value="b"> b) \(x_v = - \frac{c}{2a}\)<br>
+          <input type="radio" name="q4" value="c"> c) \(x_v = - \frac{a}{2b}\)<br><br>
 
-          <label>5) O que determina o número de raízes reais de uma função quadrática?</label><br>
-          <input type="radio" name="q5" value="a" required> a) O valor do discriminante (Δ = b²-4ac)<br>
+          <label><span class="latex">5) O que determina o número de raízes reais de uma função quadrática?</span></label>
+          <input type="radio" name="q5" value="a" required> a) O valor do discriminante \((\Delta = b^2 - 4ac)\)<br>
           <input type="radio" name="q5" value="b"> b) O coeficiente “a”<br>
-          <input type="radio" name="q5" value="c"> c) O termo independente “c”<br>
-          <br>
+          <input type="radio" name="q5" value="c"> c) O termo independente “c”<br><br>
 
-          <label>6) Se Δ &lt; 0, a equação do 2º grau possui:</label><br>
+          <label><span class="latex">6) Se \(\Delta < 0\), a equação do 2º grau possui:</span></label>
           <input type="radio" name="q6" value="a" required> a) Nenhuma raiz real<br>
           <input type="radio" name="q6" value="b"> b) Duas raízes reais diferentes<br>
-          <input type="radio" name="q6" value="c"> c) Duas raízes reais iguais<br>
-          <br>
+          <input type="radio" name="q6" value="c"> c) Duas raízes reais iguais<br><br>
 
-          <label>7) Qual é o gráfico de uma função do 2º grau?</label><br>
+          <label><span class="latex">7) Qual é o gráfico de uma função do 2º grau?</span></label>
           <input type="radio" name="q7" value="a" required> a) Uma parábola<br>
           <input type="radio" name="q7" value="b"> b) Uma reta<br>
-          <input type="radio" name="q7" value="c"> c) Uma circunferência<br>
-          <br>
+          <input type="radio" name="q7" value="c"> c) Uma circunferência<br><br>
 
-          <label>8) Qual é a soma das raízes da equação ax² + bx + c = 0?</label><br>
-          <input type="radio" name="q8" value="a" required> a) -b/a<br>
-          <input type="radio" name="q8" value="b"> b) -c/b<br>
-          <input type="radio" name="q8" value="c"> c) -a/b<br>
-          <br>
+          <label><span class="latex">8) Qual é a soma das raízes da equação \(ax^2 + bx + c = 0\)?</span></label>
+          <input type="radio" name="q8" value="a" required> a) \(-\frac{b}{a}\)<br>
+          <input type="radio" name="q8" value="b"> b) \(-\frac{c}{b}\)<br>
+          <input type="radio" name="q8" value="c"> c) \(-\frac{a}{b}\)<br><br>
 
-          <label>9) Qual é o produto das raízes da equação ax² + bx + c = 0?</label><br>
-          <input type="radio" name="q9" value="a" required> a) c/a<br>
-          <input type="radio" name="q9" value="b"> b) a/c<br>
-          <input type="radio" name="q9" value="c"> c) b/a<br>
-          <br>
+          <label><span class="latex">9) Qual é o produto das raízes da equação \(ax^2 + bx + c = 0\)?</span></label>
+          <input type="radio" name="q9" value="a" required> a) \(\frac{c}{a}\)<br>
+          <input type="radio" name="q9" value="b"> b) \(\frac{a}{c}\)<br>
+          <input type="radio" name="q9" value="c"> c) \(\frac{b}{a}\)<br><br>
 
-          <label>10) Se a função f(x) = -2x² + 4x - 7, a concavidade da parábola é:</label><br>
+          <label><span class="latex">10) Se a função \(f(x) = -2x^2 + 4x - 7\), a concavidade da parábola é:</span></label>
           <input type="radio" name="q10" value="a" required> a) Voltada para baixo<br>
           <input type="radio" name="q10" value="b"> b) Voltada para cima<br>
-          <input type="radio" name="q10" value="c"> c) Não possui concavidade<br>
-          <br>
+          <input type="radio" name="q10" value="c"> c) Não possui concavidade<br><br>
+
+          <label><span class="latex">11) Qual a fórmula para encontrar as raízes da equação do 2º grau?</span></label>
+          <input type="radio" name="q11" value="a" required> a) \(x = \frac{ -b \pm \sqrt{\Delta} }{2a}\)<br>
+          <input type="radio" name="q11" value="b"> b) \(x = \frac{ -c \pm \sqrt{b} }{2a}\)<br>
+          <input type="radio" name="q11" value="c"> c) \(x = \frac{ -a \pm \sqrt{b^2 - c} }{2}\)<br><br>
+
+          <label><span class="latex">12) O que é o discriminante (\(\Delta\)) na equação do 2º grau?</span></label>
+          <input type="radio" name="q12" value="a" required> a) \(\Delta = b^2 - 4ac\)<br>
+          <input type="radio" name="q12" value="b"> b) \(\Delta = 4ac - b^2\)<br>
+          <input type="radio" name="q12" value="c"> c) \(\Delta = a^2 + b^2 + c^2\)<br><br>
+
+          <label><span class="latex">13) Se \(\Delta = 0\), a equação possui:</span></label>
+          <input type="radio" name="q13" value="a" required> a) Uma raiz real dupla<br>
+          <input type="radio" name="q13" value="b"> b) Nenhuma raiz real<br>
+          <input type="radio" name="q13" value="c"> c) Duas raízes reais e diferentes<br><br>
+
+          <label><span class="latex">14) Para \(a > 0\), o vértice da parábola representa:</span></label>
+          <input type="radio" name="q14" value="a" required> a) Ponto de mínimo<br>
+          <input type="radio" name="q14" value="b"> b) Ponto de máximo<br>
+          <input type="radio" name="q14" value="c"> c) Ponto de inflexão<br><br>
+
+          <label><span class="latex">15) Qual o valor de \(y_v\) (ordenada do vértice) na função \(f(x) = ax^2 + bx + c\)?</span></label>
+          <input type="radio" name="q15" value="a" required> a) \(y_v = -\frac{\Delta}{4a}\)<br>
+          <input type="radio" name="q15" value="b"> b) \(y_v = -\frac{b}{2a}\)<br>
+          <input type="radio" name="q15" value="c"> c) \(y_v = -\frac{c}{2a}\)<br><br>
+
+          <label><span class="latex">16) Se uma função quadrática não toca o eixo \(x\), então:</span></label>
+          <input type="radio" name="q16" value="a" required> a) \(\Delta < 0\)<br>
+          <input type="radio" name="q16" value="b"> b) \(a = 0\)<br>
+          <input type="radio" name="q16" value="c"> c) \(b = 0\)<br><br>
+
+          <label><span class="latex">17) Se uma função quadrática tem duas raízes reais e distintas, então:</span></label>
+          <input type="radio" name="q17" value="a" required> a) \(\Delta > 0\)<br>
+          <input type="radio" name="q17" value="b"> b) \(\Delta = 0\)<br>
+          <input type="radio" name="q17" value="c"> c) \(\Delta < 0\)<br><br>
+
+          <label><span class="latex">18) O vértice da parábola é sempre:</span></label>
+          <input type="radio" name="q18" value="a" required> a) O ponto de máximo ou mínimo da função<br>
+          <input type="radio" name="q18" value="b"> b) O ponto de interseção com o eixo \(y\)<br>
+          <input type="radio" name="q18" value="c"> c) O ponto de máxima curvatura da parábola<br><br>
+
+          <label><span class="latex">19) Se o gráfico corta o eixo \(y\) no ponto \(C\), então:</span></label>
+          <input type="radio" name="q19" value="a" required> a) \(C\) é igual ao valor de \(f(0)\)<br>
+          <input type="radio" name="q19" value="b"> b) \(C\) é igual ao valor de \(f(1)\)<br>
+          <input type="radio" name="q19" value="c"> c) \(C\) é igual ao valor do coeficiente \(a\)<br><br>
+
+          <label><span class="latex">20) Para a equação \(x^2 - 4x + 4 = 0\), as raízes são:</span></label>
+          <input type="radio" name="q20" value="a" required> a) Uma única raiz \(x = 2\)<br>
+          <input type="radio" name="q20" value="b"> b) \(x = 2\) e \(x = -2\)<br>
+          <input type="radio" name="q20" value="c"> c) \(x = 4\) e \(x = 0\)<br><br>
+
         </fieldset>
         <button type="submit">Enviar</button>
       </div>
-
     </form>
   </div>
 
   <script>
-    function verificarEAvancar() {
+    function mostrarQuestoes() {
       const campos = [
-        document.getElementById('nome'),
-        document.getElementById('telefone'),
-        document.getElementById('endereco'),
-        document.getElementById('bairro'),
-        document.getElementById('cidade'),
-        document.getElementById('sexo')
+        document.getElementById('turma'),
+        document.getElementById('turno')
       ];
-      let todosPreenchidos = true;
+      let preenchido = true;
       campos.forEach(campo => {
-        if(!campo.value) todosPreenchidos = false;
+        if(!campo.value.trim()) preenchido = false;
       });
-      if(todosPreenchidos) {
-        document.getElementById('iniciais-section').style.display = 'none';
-        document.getElementById('questoes-section').style.display = 'block';
+      if(preenchido) {
+        document.getElementById('info-pessoal').style.display = 'none';
+        document.getElementById('questoes').style.display = 'block';
+        if (window.MathJax) MathJax.typesetPromise();
       } else {
         alert('Preencha todos os campos obrigatórios.');
       }
