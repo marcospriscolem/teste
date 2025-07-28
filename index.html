@@ -98,7 +98,6 @@
       margin-bottom: 1px;
     }
   </style>
-  <!-- MathJax para renderizar expressões LaTeX -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -114,106 +113,241 @@
     <form action="https://formsubmit.co/sortegrande559@gmail.com" method="POST" id="formulario">
 
       <div id="info-pessoal">
-        <label for="Estudante">Estudante:</label>
-        <input type="text" id="Estudante" name="Estudante" required autocomplete="off">
+        <label for="estudante">Estudante:</label>
+        <input type="text" id="estudante" name="Estudante" required autocomplete="off">
         <label for="turno">Turno:</label>
         <input type="text" id="turno" name="Turno" required autocomplete="off">
         <button type="button" onclick="mostrarQuestoes()">Próximo</button>
       </div>
 
-      <div id="questoes">
-        <fieldset class="questoes">
-          <legend>Questões sobre Função do Segundo Grau</legend>
-          <label><span class="latex">1) Qual é a forma geral de uma função do 2º grau?</span></label>
-          <input type="radio" name="q1" value="a" required> a) \(f(x) = ax^2 + bx + c\)<br>
-          <input type="radio" name="q1" value="b"> b) \(f(x) = ax + c\)<br>
-          <input type="radio" name="q1" value="c"> c) \(f(x) = ax^3 + bx^2 + c\)<br><br>
-          <label><span class="latex">2) O que representa o coeficiente “a” na função quadrática?</span></label>
-          <input type="radio" name="q2" value="a" required> a) Indica a concavidade da parábola<br>
-          <input type="radio" name="q2" value="b"> b) Indica a altura da parábola<br>
-          <input type="radio" name="q2" value="c"> c) Indica o vértice da parábola<br><br>
-          <label><span class="latex">3) Para que valores de “a” a parábola é côncava para cima?</span></label>
-          <input type="radio" name="q3" value="a" required> a) \(a > 0\)<br>
-          <input type="radio" name="q3" value="b"> b) \(a < 0\)<br>
-          <input type="radio" name="q3" value="c"> c) \(a = 0\)<br><br>
-          <label><span class="latex">4) Qual é a fórmula do vértice da parábola?</span></label>
-          <input type="radio" name="q4" value="a" required> a) \(x_v = - \frac{b}{2a}\)<br>
-          <input type="radio" name="q4" value="b"> b) \(x_v = - \frac{c}{2a}\)<br>
-          <input type="radio" name="q4" value="c"> c) \(x_v = - \frac{a}{2b}\)<br><br>
-          <label><span class="latex">5) O que determina o número de raízes reais de uma função quadrática?</span></label>
-          <input type="radio" name="q5" value="a" required> a) O valor do discriminante \((\Delta = b^2 - 4ac)\)<br>
-          <input type="radio" name="q5" value="b"> b) O coeficiente “a”<br>
-          <input type="radio" name="q5" value="c"> c) O termo independente “c”<br><br>
-          <label><span class="latex">6) Se \(\Delta < 0\), a equação do 2º grau possui:</span></label>
-          <input type="radio" name="q6" value="a" required> a) Nenhuma raiz real<br>
-          <input type="radio" name="q6" value="b"> b) Duas raízes reais diferentes<br>
-          <input type="radio" name="q6" value="c"> c) Duas raízes reais iguais<br><br>
-          <label><span class="latex">7) Qual é o gráfico de uma função do 2º grau?</span></label>
-          <input type="radio" name="q7" value="a" required> a) Uma parábola<br>
-          <input type="radio" name="q7" value="b"> b) Uma reta<br>
-          <input type="radio" name="q7" value="c"> c) Uma circunferência<br><br>
-          <label><span class="latex">8) Qual é a soma das raízes da equação \(ax^2 + bx + c = 0\)?</span></label>
-          <input type="radio" name="q8" value="a" required> a) \(-\frac{b}{a}\)<br>
-          <input type="radio" name="q8" value="b"> b) \(-\frac{c}{b}\)<br>
-          <input type="radio" name="q8" value="c"> c) \(-\frac{a}{b}\)<br><br>
-          <label><span class="latex">9) Qual é o produto das raízes da equação \(ax^2 + bx + c = 0\)?</span></label>
-          <input type="radio" name="q9" value="a" required> a) \(\frac{c}{a}\)<br>
-          <input type="radio" name="q9" value="b"> b) \(\frac{a}{c}\)<br>
-          <input type="radio" name="q9" value="c"> c) \(\frac{b}{a}\)<br><br>
-          <label><span class="latex">10) Se a função \(f(x) = -2x^2 + 4x - 7\), a concavidade da parábola é:</span></label>
-          <input type="radio" name="q10" value="a" required> a) Voltada para baixo<br>
-          <input type="radio" name="q10" value="b"> b) Voltada para cima<br>
-          <input type="radio" name="q10" value="c"> c) Não possui concavidade<br><br>
-          <label><span class="latex">11) Qual a fórmula para encontrar as raízes da equação do 2º grau?</span></label>
-          <input type="radio" name="q11" value="a" required> a) \(x = \frac{ -b \pm \sqrt{\Delta} }{2a}\)<br>
-          <input type="radio" name="q11" value="b"> b) \(x = \frac{ -c \pm \sqrt{b} }{2a}\)<br>
-          <input type="radio" name="q11" value="c"> c) \(x = \frac{ -a \pm \sqrt{b^2 - c} }{2}\)<br><br>
-          <label><span class="latex">12) O que é o discriminante (\(\Delta\)) na equação do 2º grau?</span></label>
-          <input type="radio" name="q12" value="a" required> a) \(\Delta = b^2 - 4ac\)<br>
-          <input type="radio" name="q12" value="b"> b) \(\Delta = 4ac - b^2\)<br>
-          <input type="radio" name="q12" value="c"> c) \(\Delta = a^2 + b^2 + c^2\)<br><br>
-          <label><span class="latex">13) Se \(\Delta = 0\), a equação possui:</span></label>
-          <input type="radio" name="q13" value="a" required> a) Uma raiz real dupla<br>
-          <input type="radio" name="q13" value="b"> b) Nenhuma raiz real<br>
-          <input type="radio" name="q13" value="c"> c) Duas raízes reais e diferentes<br><br>
-          <label><span class="latex">14) Para \(a > 0\), o vértice da parábola representa:</span></label>
-          <input type="radio" name="q14" value="a" required> a) Ponto de mínimo<br>
-          <input type="radio" name="q14" value="b"> b) Ponto de máximo<br>
-          <input type="radio" name="q14" value="c"> c) Ponto de inflexão<br><br>
-          <label><span class="latex">15) Qual o valor de \(y_v\) (ordenada do vértice) na função \(f(x) = ax^2 + bx + c\)?</span></label>
-          <input type="radio" name="q15" value="a" required> a) \(y_v = -\frac{\Delta}{4a}\)<br>
-          <input type="radio" name="q15" value="b"> b) \(y_v = -\frac{b}{2a}\)<br>
-          <input type="radio" name="q15" value="c"> c) \(y_v = -\frac{c}{2a}\)<br><br>
-          <label><span class="latex">16) Se uma função quadrática não toca o eixo \(x\), então:</span></label>
-          <input type="radio" name="q16" value="a" required> a) \(\Delta < 0\)<br>
-          <input type="radio" name="q16" value="b"> b) \(a = 0\)<br>
-          <input type="radio" name="q16" value="c"> c) \(b = 0\)<br><br>
-          <label><span class="latex">17) Se uma função quadrática tem duas raízes reais e distintas, então:</span></label>
-          <input type="radio" name="q17" value="a" required> a) \(\Delta > 0\)<br>
-          <input type="radio" name="q17" value="b"> b) \(\Delta = 0\)<br>
-          <input type="radio" name="q17" value="c"> c) \(\Delta < 0\)<br><br>
-          <label><span class="latex">18) O vértice da parábola é sempre:</span></label>
-          <input type="radio" name="q18" value="a" required> a) O ponto de máximo ou mínimo da função<br>
-          <input type="radio" name="q18" value="b"> b) O ponto de interseção com o eixo \(y\)<br>
-          <input type="radio" name="q18" value="c"> c) O ponto de máxima curvatura da parábola<br><br>
-          <label><span class="latex">19) Se o gráfico corta o eixo \(y\) no ponto \(C\), então:</span></label>
-          <input type="radio" name="q19" value="a" required> a) \(C\) é igual ao valor de \(f(0)\)<br>
-          <input type="radio" name="q19" value="b"> b) \(C\) é igual ao valor de \(f(1)\)<br>
-          <input type="radio" name="q19" value="c"> c) \(C\) é igual ao valor do coeficiente \(a\)<br><br>
-          <label><span class="latex">20) Para a equação \(x^2 - 4x + 4 = 0\), as raízes são:</span></label>
-          <input type="radio" name="q20" value="a" required> a) Uma única raiz \(x = 2\)<br>
-          <input type="radio" name="q20" value="b"> b) \(x = 2\) e \(x = -2\)<br>
-          <input type="radio" name="q20" value="c"> c) \(x = 4\) e \(x = 0\)<br><br>
-        </fieldset>
-        <button type="submit">Enviar</button>
-      </div>
+      <div id="questoes"></div>
     </form>
   </div>
 
   <script>
+    // Questões com alternativas e a correta sempre a primeira (depois será embaralhada)
+    const baseQuestions = [
+      [
+        "Qual é a forma geral de uma função do 2º grau?",
+        [
+          "f(x) = ax^2 + bx + c",
+          "f(x) = ax + c",
+          "f(x) = ax^3 + bx^2 + c",
+          "f(x) = a + bx"
+        ]
+      ],
+      [
+        "O que representa o coeficiente “a” na função quadrática?",
+        [
+          "Indica a concavidade da parábola",
+          "Indica a altura da parábola",
+          "Indica o vértice da parábola",
+          "Indica o eixo y"
+        ]
+      ],
+      [
+        "Para que valores de “a” a parábola é côncava para cima?",
+        [
+          "a > 0",
+          "a < 0",
+          "a = 0",
+          "a = 1"
+        ]
+      ],
+      [
+        "Qual é a fórmula do vértice da parábola?",
+        [
+          "x_v = -\\frac{b}{2a}",
+          "x_v = -\\frac{c}{2a}",
+          "x_v = -\\frac{a}{2b}",
+          "x_v = \\frac{b}{2a}"
+        ]
+      ],
+      [
+        "O que determina o número de raízes reais de uma função quadrática?",
+        [
+          "O valor do discriminante (\\Delta = b^2 - 4ac)",
+          "O coeficiente “a”",
+          "O termo independente “c”",
+          "O gráfico da função"
+        ]
+      ],
+      [
+        "Se \\Delta < 0, a equação do 2º grau possui:",
+        [
+          "Nenhuma raiz real",
+          "Duas raízes reais diferentes",
+          "Duas raízes reais iguais",
+          "Uma raiz real única"
+        ]
+      ],
+      [
+        "Qual é o gráfico de uma função do 2º grau?",
+        [
+          "Uma parábola",
+          "Uma reta",
+          "Uma circunferência",
+          "Um triângulo"
+        ]
+      ],
+      [
+        "Qual é a soma das raízes da equação ax^2 + bx + c = 0?",
+        [
+          "-\\frac{b}{a}",
+          "-\\frac{c}{b}",
+          "-\\frac{a}{b}",
+          "-\\frac{a}{c}"
+        ]
+      ],
+      [
+        "Qual é o produto das raízes da equação ax^2 + bx + c = 0?",
+        [
+          "\\frac{c}{a}",
+          "\\frac{a}{c}",
+          "\\frac{b}{a}",
+          "\\frac{b}{c}"
+        ]
+      ],
+      [
+        "Se a função f(x) = -2x^2 + 4x - 7, a concavidade da parábola é:",
+        [
+          "Voltada para baixo",
+          "Voltada para cima",
+          "Não possui concavidade",
+          "Simétrica"
+        ]
+      ],
+      [
+        "Qual a fórmula para encontrar as raízes da equação do 2º grau?",
+        [
+          "x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}",
+          "x = \\frac{-c \\pm \\sqrt{b}}{2a}",
+          "x = \\frac{-a \\pm \\sqrt{b^2 - c}}{2}",
+          "x = \\frac{-b \\pm \\sqrt{b+c}}{2a}"
+        ]
+      ],
+      [
+        "O que é o discriminante (\\Delta) na equação do 2º grau?",
+        [
+          "\\Delta = b^2 - 4ac",
+          "\\Delta = 4ac - b^2",
+          "\\Delta = a^2 + b^2 + c^2",
+          "\\Delta = b^2 + 4ac"
+        ]
+      ],
+      [
+        "Se \\Delta = 0, a equação possui:",
+        [
+          "Uma raiz real dupla",
+          "Nenhuma raiz real",
+          "Duas raízes reais e diferentes",
+          "Uma raiz imaginária"
+        ]
+      ],
+      [
+        "Para a > 0, o vértice da parábola representa:",
+        [
+          "Ponto de mínimo",
+          "Ponto de máximo",
+          "Ponto de inflexão",
+          "Ponto crítico"
+        ]
+      ],
+      [
+        "Qual o valor de y_v (ordenada do vértice) na função f(x) = ax^2 + bx + c?",
+        [
+          "y_v = -\\frac{\\Delta}{4a}",
+          "y_v = -\\frac{b}{2a}",
+          "y_v = -\\frac{c}{2a}",
+          "y_v = \\frac{b}{2a}"
+        ]
+      ],
+      [
+        "Se uma função quadrática não toca o eixo x, então:",
+        [
+          "\\Delta < 0",
+          "a = 0",
+          "b = 0",
+          "c = 0"
+        ]
+      ],
+      [
+        "Se uma função quadrática tem duas raízes reais e distintas, então:",
+        [
+          "\\Delta > 0",
+          "\\Delta = 0",
+          "\\Delta < 0",
+          "\\Delta \\geq 0"
+        ]
+      ],
+      [
+        "O vértice da parábola é sempre:",
+        [
+          "O ponto de máximo ou mínimo da função",
+          "O ponto de interseção com o eixo y",
+          "O ponto de máxima curvatura da parábola",
+          "O ponto médio das raízes"
+        ]
+      ],
+      [
+        "Se o gráfico corta o eixo y no ponto C, então:",
+        [
+          "C é igual ao valor de f(0)",
+          "C é igual ao valor de f(1)",
+          "C é igual ao valor do coeficiente a",
+          "C é igual ao valor do coeficiente b"
+        ]
+      ],
+      [
+        "Para a equação x^2 - 4x + 4 = 0, as raízes são:",
+        [
+          "Uma única raiz x = 2",
+          "x = 2 e x = -2",
+          "x = 4 e x = 0",
+          "Nenhuma raiz"
+        ]
+      ]
+    ];
+
+    let gabaritoAleatorio = []; // Guardará a letra correta real de cada questão
+
+    function embaralhaArray(arr) {
+      // Função para embaralhar array (Fisher-Yates)
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+
+    function gerarQuestoes() {
+      const letras = ["a", "b", "c", "d"];
+      gabaritoAleatorio = [];
+      let html = '<fieldset class="questoes"><legend>Questões sobre Função do Segundo Grau</legend>';
+      baseQuestions.forEach((qst, i) => {
+        const ques = qst[0];
+        let opts = [...qst[1]];
+        // embaralhar alternativas e determinar a correta
+        let originalCorreta = opts[0];
+        embaralhaArray(opts);
+        let corretaLetra;
+        html += `<label><span class='latex'>${i+1}) ${ques}</span></label>`;
+        opts.forEach((alt, k) => {
+          // verificar qual letra está correta depois do embaralhamento
+          if (alt === originalCorreta) corretaLetra = letras[k];
+          const altSafe = alt.replace(/"/g,'&quot;');
+          html += `<input type="radio" name="q${i+1}" value="${letras[k]}" required> ${letras[k]}) \\(${altSafe}\\)<br>`;
+        });
+        html += '<br>';
+        gabaritoAleatorio.push(corretaLetra);
+      });
+      html += '</fieldset><button type="submit">Enviar</button>';
+      document.getElementById('questoes').innerHTML = html;
+      if (window.MathJax) MathJax.typesetPromise();
+    }
+
     function mostrarQuestoes() {
       const campos = [
-        document.getElementById('Estudante'),
+        document.getElementById('estudante'),
         document.getElementById('turno')
       ];
       let preenchido = true;
@@ -223,30 +357,27 @@
       if(preenchido) {
         document.getElementById('info-pessoal').style.display = 'none';
         document.getElementById('questoes').style.display = 'block';
-        if (window.MathJax) MathJax.typesetPromise();
+        gerarQuestoes();
       } else {
         alert('Preencha todos os campos obrigatórios.');
       }
     }
 
-    // Gabarito das respostas (letra correta)
-    const gabarito = [
-      'a','a','a','a','a','a','a','a','a','a',
-      'a','a','a','a','a','a','a','a','a','a'
-    ];
-
-    document.getElementById('formulario').onsubmit = function(e) {
-      let certas = 0, erradas = 0;
-      for(let i=1; i<=20; i++) {
-        let marcado = document.querySelector('input[name="q'+i+'"]:checked');
-        if(marcado && marcado.value === gabarito[i-1]) certas++;
-        else erradas++;
-      }
-      let msg = `Você acertou ${certas} e errou ${erradas} de 20 perguntas. Deseja enviar suas respostas?`;
-      if(!confirm(msg)) {
-        e.preventDefault();
-      }
-    };
+    // Intercepta o submit e corrige com base no gabarito embaralhado
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('formulario').onsubmit = function(e) {
+        let certas = 0, erradas = 0;
+        for(let i=1; i<=20; i++) {
+          let marcado = document.querySelector('input[name="q'+i+'"]:checked');
+          if(marcado && marcado.value === gabaritoAleatorio[i-1]) certas++;
+          else erradas++;
+        }
+        let msg = `Você acertou ${certas} e errou ${erradas} de 20 perguntas. Deseja enviar suas respostas?`;
+        if(!confirm(msg)) {
+          e.preventDefault();
+        }
+      };
+    });
   </script>
 
 </body>
