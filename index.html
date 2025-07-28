@@ -129,15 +129,14 @@
   </div>
 
   <script>
-    // Questões formatadas em LaTeX
+    // Questões com enunciado em LaTeX e três alternativas (primeira é a correta)
     const baseQuestions = [
       [
         "Qual é a forma geral de uma função do 2º grau?",
         [
           "f(x) = ax^{2} + bx + c",
           "f(x) = ax + c",
-          "f(x) = ax^{3} + bx^{2} + c",
-          "f(x) = a + bx"
+          "f(x) = ax^{3} + bx^{2} + c"
         ]
       ],
       [
@@ -145,8 +144,7 @@
         [
           "Indica a concavidade da parábola",
           "Indica a altura da parábola",
-          "Indica o vértice da parábola",
-          "Indica o eixo $y$"
+          "Indica o vértice da parábola"
         ]
       ],
       [
@@ -154,8 +152,7 @@
         [
           "$a > 0$",
           "$a < 0$",
-          "$a = 0$",
-          "$a = 1$"
+          "$a = 0$"
         ]
       ],
       [
@@ -163,8 +160,7 @@
         [
           "$x_v = -\\frac{b}{2a}$",
           "$x_v = -\\frac{c}{2a}$",
-          "$x_v = -\\frac{a}{2b}$",
-          "$x_v = \\frac{b}{2a}$"
+          "$x_v = -\\frac{a}{2b}$"
         ]
       ],
       [
@@ -172,8 +168,7 @@
         [
           "O valor do discriminante $\\Delta = b^{2} - 4ac$",
           "O coeficiente $a$",
-          "O termo independente $c$",
-          "O gráfico da função"
+          "O termo independente $c$"
         ]
       ],
       [
@@ -181,8 +176,7 @@
         [
           "Nenhuma raiz real",
           "Duas raízes reais diferentes",
-          "Duas raízes reais iguais",
-          "Uma raiz real única"
+          "Duas raízes reais iguais"
         ]
       ],
       [
@@ -190,8 +184,7 @@
         [
           "Uma parábola",
           "Uma reta",
-          "Uma circunferência",
-          "Um triângulo"
+          "Uma circunferência"
         ]
       ],
       [
@@ -199,8 +192,7 @@
         [
           "$-\\dfrac{b}{a}$",
           "$-\\dfrac{c}{b}$",
-          "$-\\dfrac{a}{b}$",
-          "$-\\dfrac{a}{c}$"
+          "$-\\dfrac{a}{b}$"
         ]
       ],
       [
@@ -208,8 +200,7 @@
         [
           "$\\dfrac{c}{a}$",
           "$\\dfrac{a}{c}$",
-          "$\\dfrac{b}{a}$",
-          "$\\dfrac{b}{c}$"
+          "$\\dfrac{b}{a}$"
         ]
       ],
       [
@@ -217,8 +208,7 @@
         [
           "Voltada para baixo",
           "Voltada para cima",
-          "Não possui concavidade",
-          "Simétrica"
+          "Não possui concavidade"
         ]
       ],
       [
@@ -226,8 +216,7 @@
         [
           "$x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a}$",
           "$x = \\dfrac{-c \\pm \\sqrt{b}}{2a}$",
-          "$x = \\dfrac{-a \\pm \\sqrt{b^{2} - c}}{2}$",
-          "$x = \\dfrac{-b \\pm \\sqrt{b + c}}{2a}$"
+          "$x = \\dfrac{-a \\pm \\sqrt{b^{2} - c}}{2}$"
         ]
       ],
       [
@@ -235,8 +224,7 @@
         [
           "$\\Delta = b^{2} - 4ac$",
           "$\\Delta = 4ac - b^{2}$",
-          "$\\Delta = a^{2} + b^{2} + c^{2}$",
-          "$\\Delta = b^{2} + 4ac$"
+          "$\\Delta = a^{2} + b^{2} + c^{2}$"
         ]
       ],
       [
@@ -244,8 +232,7 @@
         [
           "Uma raiz real dupla",
           "Nenhuma raiz real",
-          "Duas raízes reais e diferentes",
-          "Uma raiz imaginária"
+          "Duas raízes reais e diferentes"
         ]
       ],
       [
@@ -253,8 +240,7 @@
         [
           "Ponto de mínimo",
           "Ponto de máximo",
-          "Ponto de inflexão",
-          "Ponto crítico"
+          "Ponto de inflexão"
         ]
       ],
       [
@@ -262,8 +248,7 @@
         [
           "$y_v = -\\dfrac{\\Delta}{4a}$",
           "$y_v = -\\dfrac{b}{2a}$",
-          "$y_v = -\\dfrac{c}{2a}$",
-          "$y_v = \\dfrac{b}{2a}$"
+          "$y_v = -\\dfrac{c}{2a}$"
         ]
       ],
       [
@@ -271,8 +256,7 @@
         [
           "$\\Delta < 0$",
           "$a = 0$",
-          "$b = 0$",
-          "$c = 0$"
+          "$b = 0$"
         ]
       ],
       [
@@ -280,8 +264,7 @@
         [
           "$\\Delta > 0$",
           "$\\Delta = 0$",
-          "$\\Delta < 0$",
-          "$\\Delta \\geq 0$"
+          "$\\Delta < 0$"
         ]
       ],
       [
@@ -289,8 +272,7 @@
         [
           "O ponto de máximo ou mínimo da função",
           "O ponto de interseção com o eixo $y$",
-          "O ponto de máxima curvatura da parábola",
-          "O ponto médio das raízes"
+          "O ponto de máxima curvatura da parábola"
         ]
       ],
       [
@@ -298,8 +280,7 @@
         [
           "$C$ é igual ao valor de $f(0)$",
           "$C$ é igual ao valor de $f(1)$",
-          "$C$ é igual ao valor do coeficiente $a$",
-          "$C$ é igual ao valor do coeficiente $b$"
+          "$C$ é igual ao valor do coeficiente $a$"
         ]
       ],
       [
@@ -307,15 +288,13 @@
         [
           "Uma única raiz $x = 2$",
           "$x = 2$ e $x = -2$",
-          "$x = 4$ e $x = 0$",
-          "Nenhuma raiz"
+          "$x = 4$ e $x = 0$"
         ]
       ]
     ];
 
-    let gabaritoAleatorio = []; // Guardará a letra correta real de cada questão
+    let gabaritoAleatorio = [];
 
-    // Embaralhamento seguro
     function embaralhaArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -324,7 +303,7 @@
     }
 
     function gerarQuestoes() {
-      const letras = ["a", "b", "c", "d"];
+      const letras = ["a", "b", "c"];
       gabaritoAleatorio = [];
       let html = '<fieldset class="questoes"><legend>Questões sobre Função do Segundo Grau</legend>';
       baseQuestions.forEach((qst, i) => {
@@ -364,7 +343,6 @@
       }
     }
 
-    // Corrige e confirma antes de enviar
     document.addEventListener('DOMContentLoaded', ()=>{
       document.getElementById('formulario').onsubmit = function(e) {
         let certas = 0, erradas = 0;
