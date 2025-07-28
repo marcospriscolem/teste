@@ -32,7 +32,7 @@
       border-radius: 14px;
       box-shadow: 0 2px 18px #0001;
       width: 100%;
-      max-width: 540px;
+      max-width: 570px;
     }
     label {
       font-weight: bold;
@@ -86,16 +86,20 @@
       font-weight: normal;
       color: #1d3950;
       margin-bottom: 0;
-      margin-top: 7px;
+      margin-top: 9px;
       display: block;
     }
     .questoes input[type="radio"] {
       margin-right: 6px;
+      margin-top: 4px;
     }
     .latex {
-      font-size: 1.06em;
+      font-size: 1.05em;
       color: #0e3557;
       margin-bottom: 1px;
+    }
+    @media (max-width:600px) {
+      .form-container { padding: 6vw 2vw; }
     }
   </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -125,6 +129,7 @@
   </div>
 
   <script>
+    // Questões formatadas em LaTeX
     const baseQuestions = [
       [
         "Qual é a forma geral de uma função do 2º grau?",
@@ -136,43 +141,43 @@
         ]
       ],
       [
-        "O que representa o coeficiente \\(a\\) na função quadrática?",
+        "O que representa o coeficiente $a$ na função quadrática?",
         [
           "Indica a concavidade da parábola",
           "Indica a altura da parábola",
           "Indica o vértice da parábola",
-          "Indica o eixo y"
+          "Indica o eixo $y$"
         ]
       ],
       [
-        "Para que valores de \\(a\\) a parábola é côncava para cima?",
+        "Para que valores de $a$ a parábola é côncava para cima?",
         [
-          "\\(a > 0\\)",
-          "\\(a < 0\\)",
-          "\\(a = 0\\)",
-          "\\(a = 1\\)"
+          "$a > 0$",
+          "$a < 0$",
+          "$a = 0$",
+          "$a = 1$"
         ]
       ],
       [
         "Qual é a fórmula do vértice da parábola?",
         [
-          "x_v = -\\frac{b}{2a}",
-          "x_v = -\\frac{c}{2a}",
-          "x_v = -\\frac{a}{2b}",
-          "x_v = \\frac{b}{2a}"
+          "$x_v = -\\frac{b}{2a}$",
+          "$x_v = -\\frac{c}{2a}$",
+          "$x_v = -\\frac{a}{2b}$",
+          "$x_v = \\frac{b}{2a}$"
         ]
       ],
       [
         "O que determina o número de raízes reais de uma função quadrática?",
         [
-          "O valor do discriminante \\(\\Delta = b^{2} - 4ac\\)",
-          "O coeficiente \\(a\\)",
-          "O termo independente \\(c\\)",
+          "O valor do discriminante $\\Delta = b^{2} - 4ac$",
+          "O coeficiente $a$",
+          "O termo independente $c$",
           "O gráfico da função"
         ]
       ],
       [
-        "Se \\(\\Delta < 0\\), a equação do 2º grau possui:",
+        "Se $\\Delta < 0$, a equação do 2º grau possui:",
         [
           "Nenhuma raiz real",
           "Duas raízes reais diferentes",
@@ -190,25 +195,25 @@
         ]
       ],
       [
-        "Qual é a soma das raízes da equação \\(ax^{2} + bx + c = 0\\)?",
+        "Qual é a soma das raízes da equação $ax^{2} + bx + c = 0$?",
         [
-          "-\\frac{b}{a}",
-          "-\\frac{c}{b}",
-          "-\\frac{a}{b}",
-          "-\\frac{a}{c}"
+          "$-\\dfrac{b}{a}$",
+          "$-\\dfrac{c}{b}$",
+          "$-\\dfrac{a}{b}$",
+          "$-\\dfrac{a}{c}$"
         ]
       ],
       [
-        "Qual é o produto das raízes da equação \\(ax^{2} + bx + c = 0\\)?",
+        "Qual é o produto das raízes da equação $ax^{2} + bx + c = 0$?",
         [
-          "\\frac{c}{a}",
-          "\\frac{a}{c}",
-          "\\frac{b}{a}",
-          "\\frac{b}{c}"
+          "$\\dfrac{c}{a}$",
+          "$\\dfrac{a}{c}$",
+          "$\\dfrac{b}{a}$",
+          "$\\dfrac{b}{c}$"
         ]
       ],
       [
-        "Se a função \\(f(x) = -2x^{2} + 4x - 7\\), a concavidade da parábola é:",
+        "Se a função $f(x) = -2x^{2} + 4x - 7$, a concavidade da parábola é:",
         [
           "Voltada para baixo",
           "Voltada para cima",
@@ -219,23 +224,23 @@
       [
         "Qual a fórmula para encontrar as raízes da equação do 2º grau?",
         [
-          "x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}",
-          "x = \\frac{-c \\pm \\sqrt{b}}{2a}",
-          "x = \\frac{-a \\pm \\sqrt{b^{2} - c}}{2}",
-          "x = \\frac{-b \\pm \\sqrt{b + c}}{2a}"
+          "$x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a}$",
+          "$x = \\dfrac{-c \\pm \\sqrt{b}}{2a}$",
+          "$x = \\dfrac{-a \\pm \\sqrt{b^{2} - c}}{2}$",
+          "$x = \\dfrac{-b \\pm \\sqrt{b + c}}{2a}$"
         ]
       ],
       [
-        "O que é o discriminante \\(\\Delta\\) na equação do 2º grau?",
+        "O que é o discriminante $\\Delta$ na equação do 2º grau?",
         [
-          "\\Delta = b^{2} - 4ac",
-          "\\Delta = 4ac - b^{2}",
-          "\\Delta = a^{2} + b^{2} + c^{2}",
-          "\\Delta = b^{2} + 4ac"
+          "$\\Delta = b^{2} - 4ac$",
+          "$\\Delta = 4ac - b^{2}$",
+          "$\\Delta = a^{2} + b^{2} + c^{2}$",
+          "$\\Delta = b^{2} + 4ac$"
         ]
       ],
       [
-        "Se \\(\\Delta = 0\\), a equação possui:",
+        "Se $\\Delta = 0$, a equação possui:",
         [
           "Uma raiz real dupla",
           "Nenhuma raiz real",
@@ -244,7 +249,7 @@
         ]
       ],
       [
-        "Para \\(a > 0\\), o vértice da parábola representa:",
+        "Para $a > 0$, o vértice da parábola representa:",
         [
           "Ponto de mínimo",
           "Ponto de máximo",
@@ -253,56 +258,56 @@
         ]
       ],
       [
-        "Qual o valor de \\(y_v\\) (ordenada do vértice) na função \\(f(x) = ax^{2} + bx + c\\)?",
+        "Qual o valor de $y_v$ (ordenada do vértice) na função $f(x) = ax^{2} + bx + c$?",
         [
-          "y_v = -\\frac{\\Delta}{4a}",
-          "y_v = -\\frac{b}{2a}",
-          "y_v = -\\frac{c}{2a}",
-          "y_v = \\frac{b}{2a}"
+          "$y_v = -\\dfrac{\\Delta}{4a}$",
+          "$y_v = -\\dfrac{b}{2a}$",
+          "$y_v = -\\dfrac{c}{2a}$",
+          "$y_v = \\dfrac{b}{2a}$"
         ]
       ],
       [
-        "Se uma função quadrática não toca o eixo \\(x\\), então:",
+        "Se uma função quadrática não toca o eixo $x$, então:",
         [
-          "\\Delta < 0",
-          "a = 0",
-          "b = 0",
-          "c = 0"
+          "$\\Delta < 0$",
+          "$a = 0$",
+          "$b = 0$",
+          "$c = 0$"
         ]
       ],
       [
         "Se uma função quadrática tem duas raízes reais e distintas, então:",
         [
-          "\\Delta > 0",
-          "\\Delta = 0",
-          "\\Delta < 0",
-          "\\Delta \\geq 0"
+          "$\\Delta > 0$",
+          "$\\Delta = 0$",
+          "$\\Delta < 0$",
+          "$\\Delta \\geq 0$"
         ]
       ],
       [
         "O vértice da parábola é sempre:",
         [
           "O ponto de máximo ou mínimo da função",
-          "O ponto de interseção com o eixo \\(y\\)",
+          "O ponto de interseção com o eixo $y$",
           "O ponto de máxima curvatura da parábola",
           "O ponto médio das raízes"
         ]
       ],
       [
-        "Se o gráfico corta o eixo \\(y\\) no ponto \\(C\\), então:",
+        "Se o gráfico corta o eixo $y$ no ponto $C$, então:",
         [
-          "C é igual ao valor de f(0)",
-          "C é igual ao valor de f(1)",
-          "C é igual ao valor do coeficiente a",
-          "C é igual ao valor do coeficiente b"
+          "$C$ é igual ao valor de $f(0)$",
+          "$C$ é igual ao valor de $f(1)$",
+          "$C$ é igual ao valor do coeficiente $a$",
+          "$C$ é igual ao valor do coeficiente $b$"
         ]
       ],
       [
-        "Para a equação \\(x^{2} - 4x + 4 = 0\\), as raízes são:",
+        "Para a equação $x^{2} - 4x + 4 = 0$, as raízes são:",
         [
-          "Uma única raiz x = 2",
-          "x = 2 \\text{ e } x = -2",
-          "x = 4 \\text{ e } x = 0",
+          "Uma única raiz $x = 2$",
+          "$x = 2$ e $x = -2$",
+          "$x = 4$ e $x = 0$",
           "Nenhuma raiz"
         ]
       ]
@@ -310,6 +315,7 @@
 
     let gabaritoAleatorio = []; // Guardará a letra correta real de cada questão
 
+    // Embaralhamento seguro
     function embaralhaArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -324,15 +330,13 @@
       baseQuestions.forEach((qst, i) => {
         const ques = qst[0];
         let opts = [...qst[1]];
-        // embaralhar alternativas e determinar a correta
         let originalCorreta = opts[0];
         embaralhaArray(opts);
         let corretaLetra;
         html += `<label><span class='latex'>${i+1}) ${ques}</span></label>`;
         opts.forEach((alt, k) => {
           if (alt === originalCorreta) corretaLetra = letras[k];
-          const altSafe = alt.replace(/"/g,'&quot;');
-          html += `<input type="radio" name="q${i+1}" value="${letras[k]}" required> ${letras[k]}) \\(${altSafe}\\)<br>`;
+          html += `<input type="radio" name="q${i+1}" value="${letras[k]}" required> ${letras[k]}) <span class="latex">\\(${alt}\\)</span><br>`;
         });
         html += '<br>';
         gabaritoAleatorio.push(corretaLetra);
@@ -360,7 +364,7 @@
       }
     }
 
-    // Validação no envio (corrige de acordo com o gabarito embaralhado)
+    // Corrige e confirma antes de enviar
     document.addEventListener('DOMContentLoaded', ()=>{
       document.getElementById('formulario').onsubmit = function(e) {
         let certas = 0, erradas = 0;
@@ -375,6 +379,7 @@
         }
       };
     });
+
   </script>
 
 </body>
