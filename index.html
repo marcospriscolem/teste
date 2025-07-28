@@ -114,7 +114,7 @@
     <form action="https://formsubmit.co/sortegrande559@gmail.com" method="POST" id="formulario">
 
       <div id="info-pessoal">
-        <label for="turma">Estudante:</label>
+        <label for="Estudante">Estudante:</label>
         <input type="text" id="Estudante" name="Estudante" required autocomplete="off">
         <label for="turno">Turno:</label>
         <input type="text" id="turno" name="Turno" required autocomplete="off">
@@ -213,7 +213,7 @@
   <script>
     function mostrarQuestoes() {
       const campos = [
-        document.getElementById('turma'),
+        document.getElementById('Estudante'),
         document.getElementById('turno')
       ];
       let preenchido = true;
@@ -235,10 +235,6 @@
       'a','a','a','a','a','a','a','a','a','a'
     ];
 
-    // Ajuste para perguntas 11-20:
-    gabarito[10]='a'; gabarito[11]='a'; gabarito[12]='a'; gabarito[13]='a'; gabarito[14]='a';
-    gabarito[15]='a'; gabarito[16]='a'; gabarito[17]='a'; gabarito[18]='a'; gabarito[19]='a';
-
     document.getElementById('formulario').onsubmit = function(e) {
       let certas = 0, erradas = 0;
       for(let i=1; i<=20; i++) {
@@ -250,7 +246,6 @@
       if(!confirm(msg)) {
         e.preventDefault();
       }
-      // Senão, formulário é enviado normalmente
     };
   </script>
 
