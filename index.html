@@ -132,7 +132,7 @@
   </div>
 
   <script>
-    // Lista de questões com 3 alternativas, a primeira sempre a correta
+    // Lista de questões com 3 alternativas, a primeira sempre correta
     const baseQuestions = [
       ["Qual é a forma geral de uma função do 2º grau?", ["f(x) = ax^{2} + bx + c", "f(x) = ax + c", "f(x) = ax^{3} + bx^{2} + c"]],
       ["O que representa o coeficiente $a$ na função quadrática?", ["Indica a concavidade da parábola", "Indica a altura da parábola", "Indica o vértice da parábola"]],
@@ -186,8 +186,9 @@
         alternativas.forEach((alt, k) => {
           if (alt === corretaOriginal) letraCorreta = letras[k];
 
-          // Transformar cada ocorrência $...$ em \( ... \) para melhor compatibilidade MathJax
-          let altFormatada = alt.replace(/\$(.*?)\$/g, (_, expr) => `\\(${expr.trim()}\\)`);
+          // Remove os cifrões e envolve o conteúdo com \( ... \)
+          let altFormatada = alt.replace(/\$(.*?)\$/g, (_, expr) => expr.trim());
+          altFormatada = `\\(${altFormatada}\\)`;
 
           html += `
             <input type="radio" id="q${i + 1}-${letras[k]}" name="q${i + 1}" value="${letras[k]}" required>
