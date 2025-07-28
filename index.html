@@ -88,15 +88,18 @@
       margin-bottom: 0;
       margin-top: 9px;
       display: block;
+      cursor: pointer;
     }
     .questoes input[type="radio"] {
       margin-right: 6px;
       margin-top: 4px;
+      cursor: pointer;
     }
     .latex {
       font-size: 1.05em;
       color: #0e3557;
       margin-bottom: 1px;
+      white-space: normal;
     }
     @media (max-width:600px) {
       .form-container { padding: 6vw 2vw; }
@@ -166,55 +169,66 @@
       const letras = ["a", "b", "c"];
       gabaritoAleatorio = [];
       let html = '<fieldset class="questoes"><legend>Questões sobre Função do Segundo Grau</legend>';
+
       baseQuestions.forEach((qst, i) => {
-        const ques = qst[0];
-        let opts = [...qst[1]];
-        const alternativaCorretaOriginal = opts[0];
-        embaralhaArray(opts);
-        let corretaLetra;
-        html += `<label><span class='latex'>${i + 1}) ${ques}</span></label>`;
-        opts.forEach((alt, k) => {
-          if (alt === alternativaCorretaOriginal) corretaLetra = letras[k];
-          html += `<input type="radio" name="q${i + 1}" value="${letras[k]}" required> ${letras[k]}) <span class="latex">\\(${alt}\\)</span><br>`;
+        const questao = qst[0];
+        const alternativasOriginais = qst[1];
+        const corretaOriginal = alternativasOriginais[0];
+
+        // Copiar array para embaralhar
+        let alternativas = [...alternativasOriginais];
+        embaralhaArray(alternativas);
+
+        let letraCorreta = "";
+
+        html += `<label><span class="latex">${i + 1}) ${questao}</span></label>`;
+
+        alternativas.forEach((alt, k) => {
+          if (alt === corretaOriginal) letraCorreta = letras[k];
+
+          // Transformar cada ocorrência $...$ em \( ... \) para melhor compatibilidade MathJax
+          let altFormatada = alt.replace(/\$(.*?)\$/g, (_, expr) => `\\(${expr.trim()}\\)`);
+
+          html += `
+            <input type="radio" id="q${i + 1}-${letras[k]}" name="q${i + 1}" value="${letras[k]}" required>
+            <label for="q${i + 1}-${letras[k]}">${letras[k]}) <span class="latex">${altFormatada}</span></label><br>
+          `;
         });
-        html += '<br>';
-        gabaritoAleatorio.push(corretaLetra);
+
+        html += "<br>";
+        gabaritoAleatorio.push(letraCorreta);
       });
+
       html += '</fieldset><button type="submit">Enviar</button>';
       document.getElementById('questoes').innerHTML = html;
+
       if (window.MathJax) MathJax.typesetPromise();
     }
 
     function mostrarQuestoes() {
-      const campos = [
-        document.getElementById('estudante'),
-        document.getElementById('turno')
-      ];
-      let preenchido = true;
-      campos.forEach(campo => {
-        if (!campo.value.trim()) preenchido = false;
-      });
-      if (preenchido) {
-        document.getElementById('info-pessoal').style.display = 'none';
-        document.getElementById('questoes').style.display = 'block';
-        gerarQuestoes();
-      } else {
+      const estudante = document.getElementById('estudante').value.trim();
+      const turno = document.getElementById('turno').value.trim();
+
+      if (estudante === "" || turno === "") {
         alert('Preencha todos os campos obrigatórios.');
+        return;
       }
+
+      document.getElementById('info-pessoal').style.display = 'none';
+      document.getElementById('questoes').style.display = 'block';
+      gerarQuestoes();
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('formulario').onsubmit = function (e) {
         let certas = 0, erradas = 0;
         for (let i = 1; i <= 20; i++) {
-          const marcado = document.querySelector('input[name="q' + i + '"]:checked');
+          let marcado = document.querySelector(`input[name="q${i}"]:checked`);
           if (marcado && marcado.value === gabaritoAleatorio[i - 1]) certas++;
           else erradas++;
         }
         const msg = `Você acertou ${certas} e errou ${erradas} de 20 perguntas. Deseja enviar suas respostas?`;
-        if (!confirm(msg)) {
-          e.preventDefault();
-        }
+        if (!confirm(msg)) e.preventDefault();
       };
     });
   </script>
