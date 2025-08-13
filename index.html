@@ -1,245 +1,276 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>COLÉGIO ESTADUAL PRISCO VIANA — MATEMÁTICA</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #e9f2fb;
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .header {
-      background: #4b98da;
-      color: #fff;
-      width: 100vw;
-      padding: 22px 10px 18px 10px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.2rem;
-      box-shadow: 0 2px 8px #235a92a0;
-      letter-spacing: 1px;
-    }
-    .form-container {
-      background: #fff;
-      margin: 38px 0;
-      padding: 32px 28px 22px 28px;
-      border-radius: 14px;
-      box-shadow: 0 2px 18px #0001;
-      width: 100%;
-      max-width: 570px;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 12px;
-      margin-bottom: 6px;
-      color: #215385;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 9px 7px;
-      margin-bottom: 12px;
-      border: 1px solid #b0c7de;
-      border-radius: 6px;
-      font-size: 1rem;
-      background: #f4f9fd;
-    }
-    button, .questoes button {
-      background: #4b98da;
-      color: white;
-      border: none;
-      padding: 13px 32px;
-      border-radius: 7px;
-      cursor: pointer;
-      font-size: 1.12rem;
-      font-weight: bold;
-      margin-top: 11px;
-      margin-right: 5px;
-      transition: background 0.15s;
-    }
-    button:hover, .questoes button:hover {
-      background: #297ab8;
-    }
-    #questoes {
-      display: none;
-      margin-top: 24px;
-    }
-    fieldset {
-      margin-bottom: 18px;
-      border: 1px solid #88b9e7;
-      border-radius: 8px;
-      padding: 14px;
-      background: #f4f9fd;
-    }
-    legend {
-      font-weight: bold;
-      color: #146c8c;
-      padding: 0 8px;
-    }
-    .questoes label {
-      font-weight: normal;
-      color: #1d3950;
-      margin-bottom: 0;
-      margin-top: 9px;
-      display: block;
-      cursor: pointer;
-    }
-    .questoes input[type="radio"] {
-      margin-right: 6px;
-      margin-top: 4px;
-      cursor: pointer;
-    }
-    .latex {
-      font-size: 1.05em;
-      color: #0e3557;
-      margin-bottom: 1px;
-      white-space: normal;
-    }
-    @media (max-width:600px) {
-      .form-container { padding: 6vw 2vw; }
-    }
-  </style>
-
-  <!-- Configuração para reconhecer $...$ como inline math -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
-    };
-  </script>
-
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-800 mb-2">Oi Gabriel, quanto tempo?</h1>
+            <p class="text-gray-600">Faça login para continuar</p>
+        </div>
 
-  <div class="header">
-    COLÉGIO ESTADUAL PRISCO VIANA<br>
-    PROFESSOR: MARCOS &nbsp; | &nbsp; DISCIPLINA: MATEMÁTICA
-  </div>
 
-  <div class="form-container">
-    <form action="https://formsubmit.co/sortegrande559@gmail.com" method="POST" id="formulario">
 
-      <div id="info-pessoal">
-        <label for="estudante">Estudante:</label>
-        <input type="text" id="estudante" name="Estudante" required autocomplete="off">
-        <label for="turno">Turno:</label>
-        <input type="text" id="turno" name="Turno" required autocomplete="off">
-        <button type="button" onclick="mostrarQuestoes()">Próximo</button>
-      </div>
+        <!-- Login Form -->
+        <form id="loginForm" class="space-y-6">
+            <!-- Usuario Field -->
+            <div>
+                <label for="usuario" class="block text-sm font-medium text-gray-700 mb-2">
+                    Usuário
+                </label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="usuario" 
+                        name="usuario" 
+                        required
+                        class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Digite seu usuário"
+                    >
+                </div>
+            </div>
 
-      <div id="questoes"></div>
-    </form>
-  </div>
+            <!-- Senha Field -->
+            <div>
+                <label for="senha" class="block text-sm font-medium text-gray-700 mb-2">
+                    Senha
+                </label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <input 
+                        type="password" 
+                        id="senha" 
+                        name="senha" 
+                        required
+                        class="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Digite sua senha"
+                    >
+                    <button 
+                        type="button" 
+                        id="togglePassword"
+                        class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                    >
+                        <svg id="eyeIcon" class="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-  <script>
-    // Lista de questões com 3 alternativas, a primeira sempre correta (expressões matemáticas entre $...$)
-    const baseQuestions = [
-      ["Qual é a forma geral de uma função do 2º grau?", ["$f(x) = ax^{2} + bx + c$", "$f(x) = ax + c$", "$f(x) = ax^{3} + bx^{2} + c$"]],
-      ["O que representa o coeficiente $a$ na função quadrática?", ["Indica a concavidade da parábola", "Indica a altura da parábola", "Indica o vértice da parábola"]],
-      ["Para que valores de $a$ a parábola é côncava para cima?", ["$a > 0$", "$a < 0$", "$a = 0$"]],
-      ["Qual é a fórmula do vértice da parábola?", ["$x_v = -\\frac{b}{2a}$", "$x_v = -\\frac{c}{2a}$", "$x_v = -\\frac{a}{2b}$"]],
-      ["O que determina o número de raízes reais de uma função quadrática?", ["O valor do discriminante $\\Delta = b^{2} - 4ac$", "O coeficiente $a$", "O termo independente $c$"]],
-      ["Se $\\Delta < 0$, a equação do 2º grau possui:", ["Nenhuma raiz real", "Duas raízes reais diferentes", "Duas raízes reais iguais"]],
-      ["Qual é o gráfico de uma função do 2º grau?", ["Uma parábola", "Uma reta", "Uma circunferência"]],
-      // Questões 08 e 09 removidas
-      ["Se a função $f(x) = -2x^{2} + 4x - 7$, a concavidade da parábola é:", ["Voltada para baixo", "Voltada para cima", "Não possui concavidade"]],
-      ["Qual a fórmula para encontrar as raízes da equação do 2º grau?", ["$x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a}$", "$x = \\dfrac{-c \\pm \\sqrt{b}}{2a}$", "$x = \\dfrac{-a \\pm \\sqrt{b^{2} - c}}{2}$"]],
-      ["O que é o discriminante $\\Delta$ na equação do 2º grau?", ["$\\Delta = b^{2} - 4ac$", "$\\Delta = 4ac - b^{2}$", "$\\Delta = a^{2} + b^{2} + c^{2}$"]],
-      ["Se $\\Delta = 0$, a equação possui:", ["Uma raiz real dupla", "Nenhuma raiz real", "Duas raízes reais e diferentes"]],
-      ["Para $a > 0$, o vértice da parábola representa:", ["Ponto de mínimo", "Ponto de máximo", "Ponto de inflexão"]],
-      ["Qual o valor de $y_v$ (ordenada do vértice) na função $f(x) = ax^{2} + bx + c$?", ["$y_v = -\\dfrac{\\Delta}{4a}$", "$y_v = -\\dfrac{b}{2a}$", "$y_v = -\\dfrac{c}{2a}$"]],
-      ["Se uma função quadrática não toca o eixo $x$, então:", ["$\\Delta < 0$", "$a = 0$", "$b = 0$"]],
-      ["Se uma função quadrática tem duas raízes reais e distintas, então:", ["$\\Delta > 0$", "$\\Delta = 0$", "$\\Delta < 0$"]],
-      ["O vértice da parábola é sempre:", ["O ponto de máximo ou mínimo da função", "O ponto de interseção com o eixo $y$", "O ponto de máxima curvatura da parábola"]],
-      ["Se o gráfico corta o eixo $y$ no ponto $C$, então:", ["$C$ é igual ao valor de $f(0)$", "$C$ é igual ao valor de $f(1)$", "$C$ é igual ao valor do coeficiente $a$"]],
-      ["Para a equação $x^{2} - 4x + 4 = 0$, as raízes são:", ["Uma única raiz $x = 2$", "$x = 2$ e $x = -2$", "$x = 4$ e $x = 0$"]]
-    ];
+            <!-- Remember Me -->
+            <div class="flex items-center">
+                <input 
+                    id="lembrar" 
+                    name="lembrar" 
+                    type="checkbox" 
+                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                >
+                <label for="lembrar" class="ml-2 block text-sm text-gray-700">
+                    Lembrar de mim
+                </label>
+            </div>
 
-    let gabaritoAleatorio = [];
+            <!-- Error Message -->
+            <div id="errorMessage" class="hidden bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span id="errorText" class="text-red-700 text-sm font-medium"></span>
+                </div>
+            </div>
 
-    function embaralhaArray(arr) {
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-    }
+            <!-- Login Button -->
+            <button 
+                type="submit" 
+                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 transform hover:scale-105"
+            >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013 3v1"></path>
+                </svg>
+                Entrar
+            </button>
+        </form>
 
-    function gerarQuestoes() {
-      const letras = ["a", "b", "c"];
-      gabaritoAleatorio = [];
-      let html = '<fieldset class="questoes"><legend>Questões sobre Função do Segundo Grau</legend>';
 
-      baseQuestions.forEach((qst, i) => {
-        const questao = qst[0];
-        const alternativasOriginais = qst[1];
-        const corretaOriginal = alternativasOriginais[0];
 
-        // Embaralha alternativas
-        let alternativas = [...alternativasOriginais];
-        embaralhaArray(alternativas);
 
-        let letraCorreta = "";
+    </div>
 
-        html += `<label><span class="latex">${i + 1}) ${questao}</span></label>`;
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl p-6 max-w-sm w-full">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Para Simone</h3>
+                <div class="text-gray-700 text-sm leading-relaxed mb-6 max-h-64 overflow-y-auto">
+                    <p class="mb-3">Tenho que admitir, Simone, que não somente uma mensagem assim, como também aquelas de "oi", "bom dia", "boa noite", "você vai estar em Luís Eduardo amanhã", "fala comigo, Marcos", despertam um sentimento bom, gostoso de sentir. O momento, o dia, a noite fica mais leve.</p>
+                    
+                    <p class="mb-3">Contudo, estamos vivenciando um período de conflitos, em que o sentimento, a imaginação, as situações passadas despertam ao mesmo tempo o querer, a vontade, a incerteza, a certeza, a possibilidade e a impossibilidade desta história continuar.</p>
+                    
+                    <p class="mb-3">Conversar contigo... foram muitas conversas. Carinho por você tenho muito, chateações também.</p>
+                    
+                    <p>Eu estou bem aflito por não ter uma saída livre, que nos leve a um lugar que um casal merece estar.</p>
+                </div>
+                <button id="closeModal" class="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
 
-        alternativas.forEach((alt, k) => {
-          if (alt === corretaOriginal) letraCorreta = letras[k];
+    <script>
+        // Anti-debugging protection
+        (function() {
+            'use strict';
+            
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F12' || 
+                    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C')) ||
+                    (e.ctrlKey && e.key === 'u')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // DevTools detection removed for better compatibility
+        })();
 
-          // Usa o texto como está, com cifrões para MathJax interpretar
-          let altFormatada = alt;
+        // Obfuscated credentials
+        const _0x1a2b = ['Z2FicmllbA==', 'anVydXJ1'];
+        const _0x3c4d = _0x1a2b.map(x => atob(x));
+        
+        // Toggle password visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('senha');
+        const eyeIcon = document.getElementById('eyeIcon');
 
-          html += `
-            <input type="radio" id="q${i + 1}-${letras[k]}" name="q${i + 1}" value="${letras[k]}" required>
-            <label for="q${i + 1}-${letras[k]}">${letras[k]}) <span class="latex">${altFormatada}</span></label><br>
-          `;
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            if (type === 'text') {
+                eyeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                `;
+            } else {
+                eyeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                `;
+            }
         });
 
-        html += "<br>";
-        gabaritoAleatorio.push(letraCorreta);
-      });
+        // Handle form submission
+        const loginForm = document.getElementById('loginForm');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
 
-      html += '</fieldset><button type="submit">Enviar</button>';
-      document.getElementById('questoes').innerHTML = html;
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            
+            if (usuario && senha) {
+                // Validate credentials using obfuscated data
+                const _0x5e6f = (str) => str.split('').reverse().join('');
+                const _0x7g8h = usuario.toLowerCase();
+                
+                if (_0x7g8h === _0x3c4d[0] && senha === _0x3c4d[1]) {
+                    successModal.classList.remove('hidden');
+                } else {
+                    showErrorMessage('Usuário ou senha incorretos!');
+                }
+            }
+        });
 
-      if (window.MathJax) MathJax.typesetPromise();
-    }
+        closeModal.addEventListener('click', function() {
+            successModal.classList.add('hidden');
+            loginForm.reset();
+        });
 
-    function mostrarQuestoes() {
-      const estudante = document.getElementById('estudante').value.trim();
-      const turno = document.getElementById('turno').value.trim();
+        // Close modal when clicking outside
+        successModal.addEventListener('click', function(e) {
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+                loginForm.reset();
+            }
+        });
 
-      if (estudante === "" || turno === "") {
-        alert('Preencha todos os campos obrigatórios.');
-        return;
-      }
-
-      document.getElementById('info-pessoal').style.display = 'none';
-      document.getElementById('questoes').style.display = 'block';
-      gerarQuestoes();
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('formulario').onsubmit = function (e) {
-        let certas = 0, erradas = 0;
-        for (let i = 1; i <= baseQuestions.length; i++) {
-          let marcado = document.querySelector(`input[name="q${i}"]:checked`);
-          if (marcado && marcado.value === gabaritoAleatorio[i - 1]) certas++;
-          else erradas++;
+        // Show error message function
+        function showErrorMessage(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            
+            errorText.textContent = message;
+            errorMessage.classList.remove('hidden');
+            
+            setTimeout(() => {
+                errorMessage.classList.add('hidden');
+            }, 5000);
         }
-        const msg = `Você acertou ${certas} e errou ${erradas} de ${baseQuestions.length} perguntas. Deseja enviar suas respostas?`;
-        if (!confirm(msg)) e.preventDefault();
-      };
-    });
-  </script>
 
-</body>
+        // Hide error message when user starts typing
+        document.querySelectorAll('input[type="text"], input[type="password"]').forEach(input => {
+            input.addEventListener('input', function() {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.classList.add('hidden');
+            });
+        });
+
+        // Add input focus effects
+        document.querySelectorAll('input[type="text"], input[type="password"]').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('ring-2', 'ring-blue-500');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('ring-2', 'ring-blue-500');
+            });
+        });
+
+        // Clear console periodically
+        setInterval(() => {
+            console.clear();
+        }, 1000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96eb79049532f1a7',t:'MTc1NTEyMjI5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
